@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 require('dotenv').config();
 const productRouter = require('./routes/productRoutes');
+const userRouter = require('./routes/userRoutes');
 const mongodbURI  = process.env.MONGODB_URI;
 mongoose.connect(mongodbURI , {
     maxPoolSize : 10,
@@ -17,6 +18,7 @@ db.once('open', () => {
 // }
 app.use(express.json());
 app.use(productRouter);
+app.use(userRouter);
 //  app.get('/', function(req, res){
 //      res.send("Hello World");
 //  })
