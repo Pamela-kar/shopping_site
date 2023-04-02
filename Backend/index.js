@@ -17,9 +17,9 @@ db.once('open', () => {
 // }
 app.use(express.json());
 app.use(productRouter);
-// app.get('/', function(req, res){
-//     res.send("Hello World");
-// })
+//  app.get('/', function(req, res){
+//      res.send("Hello World");
+//  })
 app. listen(3000 , '0.0.0.0', ()=> {
     console.log("server started at port 3000");
 })
