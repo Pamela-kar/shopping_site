@@ -1,9 +1,17 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const cors = require('cors');
 require('dotenv').config();
+
 const productRouter = require('./routes/productRoutes');
 const userRouter = require('./routes/userRoutes');
+
+app.use(
+    cors({
+        origin : '*',
+    })
+)
 const mongodbURI  = process.env.MONGODB_URI;
 mongoose.connect(mongodbURI , {
     maxPoolSize : 10,
@@ -22,6 +30,6 @@ app.use(userRouter);
 //  app.get('/', function(req, res){
 //      res.send("Hello World");
 //  })
-app. listen(3000 , '0.0.0.0', ()=> {
-    console.log("server started at port 3000");
+app. listen(4000 , '0.0.0.0', ()=> {
+    console.log("server started at port 4000");
 })
